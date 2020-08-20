@@ -1,0 +1,28 @@
+package com.mhamza007.iptv.settings
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.WindowManager
+import com.mhamza007.iptv.R
+import kotlinx.android.synthetic.main.activity_change_code.*
+
+class ChangeCodeActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+        setContentView(R.layout.activity_change_code)
+
+        back.setOnClickListener {
+            finish()
+            overridePendingTransition(0, 0)
+        }
+    }
+
+    override fun onBackPressed() {
+        finish()
+        overridePendingTransition(0, 0)
+    }
+}

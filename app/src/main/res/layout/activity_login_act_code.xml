@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".login.LoginActCodeActivity">
+
+    <ImageView
+        android:id="@+id/login_side_img"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/login_image"
+        android:src="@drawable/login_side_img"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:contentDescription="@string/logo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        android:transitionName="imageTransition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/login_side_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/login"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_30sdp"
+        android:transitionName="loginTextAnimation"
+        app:layout_constraintBottom_toTopOf="@+id/activationCode"
+        app:layout_constraintEnd_toEndOf="@+id/activationCode"
+        app:layout_constraintStart_toStartOf="@+id/activationCode" />
+
+    <EditText
+        android:id="@+id/activationCode"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_marginEnd="@dimen/_40sdp"
+        android:background="@drawable/ip_field_bg"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="@string/enter_activation_code"
+        android:inputType="text"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:transitionName="loginFieldAnimation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/click_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/activationCode"
+        app:layout_constraintStart_toStartOf="@id/activationCode"
+        app:layout_constraintTop_toBottomOf="@id/activationCode">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/i_have_username_and_password"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/click_here"
+            android:textColor="@color/colorBlue" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/login_btn_bg"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:transitionName="loginBtnAnimation"
+        app:layout_constraintEnd_toEndOf="@id/activationCode"
+        app:layout_constraintStart_toStartOf="@id/activationCode"
+        app:layout_constraintTop_toBottomOf="@+id/click_layout" />
+
+    <LinearLayout
+        android:id="@+id/supportLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:transitionName="supportLayoutAnimation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/activationCode"
+        app:layout_constraintStart_toStartOf="@+id/activationCode">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/for_support"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/contact_mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/contact_mail"
+            android:textColor="@color/colorBlue" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

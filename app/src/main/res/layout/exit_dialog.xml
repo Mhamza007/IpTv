@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/exitDialog"
+    android:layout_width="@dimen/_420sdp"
+    android:layout_height="@dimen/_200sdp">
+
+    <ImageView
+        android:id="@+id/exit_person"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:contentDescription="@string/exit_person"
+        android:scaleType="fitXY"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:src="@drawable/exit_person"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/exit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_25sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/exit_person"
+        app:layout_constraintTop_toTopOf="@+id/exit_person" />
+
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="@id/exit_text"
+        app:layout_constraintStart_toStartOf="@id/exit_text"
+        app:layout_constraintTop_toBottomOf="@+id/exit_text">
+
+        <Button
+            android:id="@+id/exitNo"
+            style="?attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/exit_no_btn_bg"
+            android:paddingHorizontal="@dimen/_30sdp"
+            android:text="@string/no"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/exitYes"
+            style="?attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:background="@drawable/exit_yes_btn_bg"
+            android:paddingHorizontal="@dimen/_30sdp"
+            android:text="@string/yes"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
