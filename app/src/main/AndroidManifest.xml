@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".SearchActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".dashboard.DashboardSetActivity"
             android:screenOrientation="landscape" />
         <activity

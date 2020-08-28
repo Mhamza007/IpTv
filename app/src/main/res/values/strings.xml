@@ -52,8 +52,13 @@
     <string name="enter_code_to_activate_adult_categories">Enter Code to Activate adult Categories</string>
     <string name="enter_here">Enter Here</string>
     <string name="lock_unlock">Lock/Unlock</string>
-    <string name="demo_video">https://www.youtube.com/watch?v=xcJtL7QggTI</string>
 
     <string name="test_username">35486225</string>
     <string name="test_password">35486225</string>
+    <string name="get_live_categories">get_live_categories</string>
+    <string name="get_live_streams">get_live_streams</string>
+    <string name="get_vod_categories">get_vod_categories</string>
+    <string name="get_vod_streams">get_vod_streams</string>
+
+    <string name="link">https://storage.googleapis.com/exoplayer-test-media-0/BigBuckBunny_320x180.mp4</string>
 </resources>

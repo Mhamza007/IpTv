@@ -2,9 +2,69 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!-- transition -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="ThemeOne" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ThemeOneColorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/ThemeOneColorPrimaryDark</item>
+        <item name="colorAccent">@color/ThemeOneColorAccent</item>
+        <!-- transition -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="ThemeTwo" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ThemeTwoColorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/ThemeTwoColorPrimaryDark</item>
+        <item name="colorAccent">@color/ThemeTwoColorAccent</item>
+        <!-- transition -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="ThemeThree" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ThemeThreeColorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/ThemeThreeColorPrimaryDark</item>
+        <item name="colorAccent">@color/ThemeThreeColorAccent</item>
+        <!-- transition -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="ThemeFour" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ThemeFourColorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/ThemeFourColorPrimaryDark</item>
+        <item name="colorAccent">@color/ThemeFourColorAccent</item>
+        <!-- transition -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="ThemeFive" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ThemeFiveColorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/ThemeFiveColorPrimaryDark</item>
+        <item name="colorAccent">@color/ThemeFiveColorAccent</item>
+        <!-- transition -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="ThemeSix" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ThemeSixColorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/ThemeSixColorPrimaryDark</item>
+        <item name="colorAccent">@color/ThemeSixColorAccent</item>
         <!-- transition -->
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowActivityTransitions">true</item>

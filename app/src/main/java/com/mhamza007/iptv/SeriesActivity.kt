@@ -13,7 +13,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.mhamza007.iptv.model.Movie
+import com.mhamza007.iptv.model.LiveTvCategory
+import com.mhamza007.iptv.util.Utils
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.sub_category_item.view.*
 
 class SeriesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        Utils.checkThemeInfo(this)
         super.onCreate(savedInstanceState)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -87,81 +89,47 @@ class SeriesActivity : AppCompatActivity() {
             return@setOnEditorActionListener false
         }
 
-        val subCatAdapter = GroupAdapter<GroupieViewHolder>()
-        subCatAdapter.add(SubCategoryItem(this, "Favourites"))
-        subCatAdapter.add(SubCategoryItem(this, "Favourites"))
-        subCatAdapter.add(SubCategoryItem(this, "Favourites"))
-        subCatAdapter.add(SubCategoryItem(this, "Favourites"))
-        subCatAdapter.add(SubCategoryItem(this, "Favourites"))
+/*        val subCatAdapter = GroupAdapter<GroupieViewHolder>()
+        subCatAdapter.add(MoviesCategoryItem("Favourites"))
+        subCatAdapter.add(MoviesCategoryItem("Favourites"))
+        subCatAdapter.add(MoviesCategoryItem("Favourites"))
+        subCatAdapter.add(MoviesCategoryItem("Favourites"))
+        subCatAdapter.add(MoviesCategoryItem("Favourites"))
         subCategoryList.layoutManager = LinearLayoutManager(this)
-        subCategoryList.adapter = subCatAdapter
+        subCategoryList.adapter = subCatAdapter*/
 
-        val movieItemAdapter = GroupAdapter<GroupieViewHolder>()
+
+/*        val movieItemAdapter = GroupAdapter<GroupieViewHolder>()
         movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
-                this,
-                Movie(getString(R.string.test_link), "Movie Name", "2.6")
-            )
-        )
-        movieItemAdapter.add(
-            MovieItem(
+            SeriesItem(
                 this,
                 Movie(getString(R.string.test_link), "Movie Name", "2.6")
             )
         )
         seriesList.layoutManager = GridLayoutManager(this, 3)
-        seriesList.adapter = movieItemAdapter
+        seriesList.adapter = movieItemAdapter*/
+    }
+    inner class SeriesCategoryItem(
+        private val liveTvCategory: LiveTvCategory
+    ) :
+        Item<GroupieViewHolder>() {
+        override fun getLayout() = R.layout.sub_category_item
+
+        override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+            viewHolder.apply {
+                with(viewHolder.itemView) {
+                    subCategoryTitle.text = liveTvCategory.categoryName
+//                    subCategoryTitle.setOnClickListener {
+//                        if (liveTvCategory.categoryId != null)
+//                            getLiveStreamsList(liveTvCategory.categoryId)
+//                    }
+                }
+            }
+        }
     }
 }
 
+/*
 class SeriesItem(private val context: Context, private val movie: Movie) :
     Item<GroupieViewHolder>() {
     override fun getLayout(): Int {
@@ -171,6 +139,5 @@ class SeriesItem(private val context: Context, private val movie: Movie) :
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         Glide.with(context).load(movie.icon).into(viewHolder.itemView.itemImage)
         viewHolder.itemView.itemName.text = movie.name
-//        viewHolder.itemView.itemRatings.rating = movie.rating.toFloat()
     }
-}
+}*/

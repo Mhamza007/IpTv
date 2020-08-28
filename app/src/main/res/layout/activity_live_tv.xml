@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
+        android:background="?attr/colorPrimaryDark"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -120,7 +120,7 @@
         android:id="@+id/sub_categories_layout"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="0dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="?attr/colorPrimaryDark"
         android:padding="@dimen/_10sdp"
         android:transitionName="@string/sub_cat_anim"
         app:layout_constraintBottom_toBottomOf="parent"

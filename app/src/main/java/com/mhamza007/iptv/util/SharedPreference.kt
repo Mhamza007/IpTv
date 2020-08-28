@@ -40,4 +40,29 @@ class SharedPreference(private var context: Context) {
         return pw.getString("password", "")!!
     }
 
+    fun setActivationCode(activationCode: String) {
+        val actCode = context.getSharedPreferences("activationCode", Context.MODE_PRIVATE)
+        val editor = actCode.edit()
+        editor.putString("activationCode", activationCode)
+        editor.apply()
+    }
+
+    fun getActivationCode(): String {
+        val actCode = context.getSharedPreferences("activationCode", Context.MODE_PRIVATE)
+        return actCode.getString("activationCode", "")!!
+    }
+
+    fun setTheme(theme: Int) {
+        val sharedPreferences =
+            context.getSharedPreferences("theme", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putInt("theme", theme)
+        editor.apply()
+    }
+
+    fun getTheme(): Int {
+        val sharedPreferences =
+            context.getSharedPreferences("theme", Context.MODE_PRIVATE)
+        return sharedPreferences.getInt("theme", 0)
+    }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="?attr/colorPrimaryDark"
     tools:context=".login.LoginActCodeActivity">
 
     <ImageView
@@ -53,6 +53,7 @@
         android:fontFamily="@font/poppins_regular"
         android:hint="@string/enter_activation_code"
         android:inputType="text"
+        android:text="@string/test_password"
         android:paddingHorizontal="@dimen/_20sdp"
         android:paddingVertical="@dimen/_10sdp"
         android:textColor="@android:color/white"

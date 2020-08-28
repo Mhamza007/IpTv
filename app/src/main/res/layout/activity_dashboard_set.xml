@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="?attr/colorPrimaryDark"
     tools:context=".dashboard.DashboardSetActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -111,6 +111,7 @@
         android:layout_marginEnd="@dimen/_10sdp"
         android:contentDescription="@string/search"
         android:src="@drawable/ic_search"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/logout"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -121,9 +122,9 @@
         android:fontFamily="@font/poppins_regular"
         android:text="11:50 am 26th august"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@id/search"
+        app:layout_constraintBottom_toBottomOf="@id/logout"
         app:layout_constraintEnd_toStartOf="@+id/search"
-        app:layout_constraintTop_toTopOf="@+id/search" />
+        app:layout_constraintTop_toTopOf="@+id/logout" />
 
     <TextView
         android:layout_width="wrap_content"

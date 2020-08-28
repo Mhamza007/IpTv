@@ -14,9 +14,11 @@ import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
+import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
+import com.mhamza007.iptv.util.Utils
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -33,9 +35,11 @@ class PlayerActivity : AppCompatActivity() {
 
     private var currentWindow = 0
     private var playbackPosition: Long = 0
-    private lateinit var playbackStateListener: PlaybackStateListener
+    private var playbackStateListener: PlaybackStateListener? = null
+    private var playerView: PlayerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Utils.checkThemeInfo(this)
         super.onCreate(savedInstanceState)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -44,6 +48,7 @@ class PlayerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_player)
 
         playbackStateListener = PlaybackStateListener()
+        playerView = findViewById(R.id.playerView)
 
         if (Util.SDK_INT >= 24) {
             initPlayer()
@@ -101,16 +106,19 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     private fun initPlayer() {
-        player = SimpleExoPlayer.Builder(this).build()
-        playerView.player = player
+        if (player == null) {
+            player = SimpleExoPlayer.Builder(this).build()
+            playerView!!.player = player
 
-        val uri = Uri.parse(getString(R.string.demo_video))
-        Log.i(TAG, uri.toString())
-        val mediaSource = buildMediaSource(uri)
+            val uri = Uri.parse(getString(R.string.link))
+            Log.i(TAG, uri.toString())
+            val mediaSource = buildMediaSource(uri)
 
-        player?.addListener(playbackStateListener)
-        player?.playWhenReady = playWhenReady
-        player?.prepare(mediaSource!!, false, false)
+            player?.playWhenReady = playWhenReady
+            player!!.seekTo(currentWindow, playbackPosition)
+            player!!.addListener(playbackStateListener!!)
+            player?.prepare(mediaSource!!, false, false)
+        }
     }
 
     inner class PlaybackStateListener : Player.EventListener {
@@ -155,19 +163,22 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
-        if (player != null) {
-            if (player!!.isPlaying) {
-                player?.release()
+        super.onPause()
+
+        if (Util.SDK_INT < 24) {
+            if (player != null) {
+//                if (player!!.isPlaying) {
+//                    player?.release()
+//                }
+                releasePlayer()
             }
         }
-
-        super.onPause()
     }
 
     override fun onResume() {
         super.onResume()
         hideSystemUi()
-        if (Util.SDK_INT < 24 && player == null) {
+        if (Util.SDK_INT < 24 || player == null) {
             initPlayer()
         }
     }
@@ -175,10 +186,16 @@ class PlayerActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (player != null) {
-            if (player!!.isPlaying) {
-                releasePlayer()
-            }
+        if (Util.SDK_INT >= 24) {
+            initPlayer()
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        if (Util.SDK_INT >= 24) {
+            releasePlayer()
         }
     }
 
@@ -187,7 +204,7 @@ class PlayerActivity : AppCompatActivity() {
             playWhenReady = player!!.playWhenReady
             playbackPosition = player!!.currentPosition
             currentWindow = player!!.currentWindowIndex
-            player?.removeListener(playbackStateListener)
+//            player?.removeListener(playbackStateListener!!)
             player?.release()
             player = null
         }
@@ -195,7 +212,7 @@ class PlayerActivity : AppCompatActivity() {
 
     @SuppressLint("InlinedApi")
     private fun hideSystemUi() {
-        playerView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LOW_PROFILE
+        playerView!!.systemUiVisibility = (View.SYSTEM_UI_FLAG_LOW_PROFILE
                 or View.SYSTEM_UI_FLAG_FULLSCREEN
                 or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY

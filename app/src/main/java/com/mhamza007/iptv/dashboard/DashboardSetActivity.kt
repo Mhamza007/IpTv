@@ -13,12 +13,14 @@ import android.widget.TextView
 import com.mhamza007.iptv.MainActivity
 import com.mhamza007.iptv.R
 import com.mhamza007.iptv.SettingsActivity
+import com.mhamza007.iptv.util.Utils
 import kotlinx.android.synthetic.main.activity_dashboard_set.*
 
 class DashboardSetActivity : AppCompatActivity() {
     private lateinit var dialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Utils.checkThemeInfo(this)
         super.onCreate(savedInstanceState)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,

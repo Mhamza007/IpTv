@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="?attr/colorPrimaryDark"
     tools:context=".SettingsActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -133,6 +133,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TableRow
+                    android:id="@+id/actCodeRow"
                     android:padding="@dimen/_17sdp"
                     android:weightSum="7">
 

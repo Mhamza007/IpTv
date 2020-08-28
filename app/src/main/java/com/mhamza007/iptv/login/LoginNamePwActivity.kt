@@ -8,7 +8,6 @@ import android.util.Log
 import android.util.Pair
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import com.mhamza007.iptv.R
 import com.mhamza007.iptv.api.ApiService
 import com.mhamza007.iptv.api.AuthInterceptor
@@ -16,6 +15,7 @@ import com.mhamza007.iptv.api.Config
 import com.mhamza007.iptv.dashboard.DashboardLTVActivity
 import com.mhamza007.iptv.model.user.UserInfo
 import com.mhamza007.iptv.util.SharedPreference
+import com.mhamza007.iptv.util.Utils
 import kotlinx.android.synthetic.main.activity_login_name_pw.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -27,8 +27,10 @@ import java.util.concurrent.TimeUnit
 
 class LoginNamePwActivity : AppCompatActivity() {
     private lateinit var sharedPreference: SharedPreference
+    private val timeout = 10L
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Utils.checkThemeInfo(this)
         super.onCreate(savedInstanceState)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -37,8 +39,6 @@ class LoginNamePwActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_name_pw)
 
         sharedPreference = SharedPreference(this@LoginNamePwActivity)
-
-        val timeout = 10L
 
         back.setOnClickListener {
             onBackPressed()
@@ -61,11 +61,10 @@ class LoginNamePwActivity : AppCompatActivity() {
             } else if (password.text.toString().trim().isEmpty()) {
                 password.error = "Empty password"
             } else {
-
+                sharedPreference.setUserName(username.text.toString().trim())
+                sharedPreference.setPassword(password.text.toString().trim())
                 if (rememberMe.isChecked) {
                     sharedPreference.setRememberCredentials(true)
-                    sharedPreference.setUserName(username.text.toString().trim())
-                    sharedPreference.setPassword(password.text.toString().trim())
                 }
 
                 val client = OkHttpClient.Builder().addInterceptor(
@@ -94,8 +93,7 @@ class LoginNamePwActivity : AppCompatActivity() {
                 call.enqueue(object : Callback<UserInfo> {
                     override fun onFailure(call: Call<UserInfo>, t: Throwable) {
                         Log.e(TAG, "onFailure ${t.message}")
-                        Toast.makeText(this@LoginNamePwActivity, "Failure", Toast.LENGTH_SHORT)
-                            .show()
+                        Utils.toast(this@LoginNamePwActivity, "Failure")
                     }
 
                     override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
@@ -104,7 +102,6 @@ class LoginNamePwActivity : AppCompatActivity() {
 
                             try {
                                 if (user != null) {
-                                    Log.d(TAG, "User Details: $user")
 
                                     val pair =
                                         Pair<View, String>(
@@ -122,21 +119,14 @@ class LoginNamePwActivity : AppCompatActivity() {
                                     startActivity(intent, options.toBundle())
                                     finishAfterTransition()
                                 } else {
-                                    Toast.makeText(
-                                        this@LoginNamePwActivity,
-                                        "Login Failed",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    Utils.toast(this@LoginNamePwActivity, "Login Failed")
                                 }
                             } catch (e: Exception) {
                                 Log.e(TAG, "onResponse Exception ${e.message}")
+                                Utils.toast(this@LoginNamePwActivity, "Login Exception Occurred")
                             }
                         } else {
-                            Toast.makeText(
-                                this@LoginNamePwActivity,
-                                "Login Failed",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Utils.toast(this@LoginNamePwActivity, "Login Failed")
                         }
                     }
                 })

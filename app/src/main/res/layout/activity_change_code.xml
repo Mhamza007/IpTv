@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="?attr/colorPrimaryDark"
     tools:context=".settings.ChangeCodeActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -153,6 +153,8 @@
                         android:background="@drawable/code_et_bg"
                         android:fontFamily="@font/poppins_regular"
                         android:hint="@string/old_code"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
                         android:paddingHorizontal="@dimen/_10sdp"
                         android:paddingVertical="@dimen/_6sdp"
                         android:textColor="@android:color/black" />
@@ -186,6 +188,8 @@
                         android:background="@drawable/code_et_bg"
                         android:fontFamily="@font/poppins_regular"
                         android:hint="@string/new_code"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
                         android:paddingHorizontal="@dimen/_10sdp"
                         android:paddingVertical="@dimen/_6sdp"
                         android:textColor="@android:color/black" />
@@ -219,6 +223,8 @@
                         android:background="@drawable/code_et_bg"
                         android:fontFamily="@font/poppins_regular"
                         android:hint="@string/rewrite_code"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
                         android:paddingHorizontal="@dimen/_10sdp"
                         android:paddingVertical="@dimen/_6sdp"
                         android:textColor="@android:color/black" />
@@ -240,7 +246,7 @@
                 android:layout_margin="@dimen/_25sdp"
                 android:background="@drawable/settings_btn_bg"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@string/enable_adult_category"
+                android:text="@string/change_code"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -10,4 +10,28 @@
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="black">#000000</color>
+
+    <color name="ThemeOneColorPrimary">#874343</color>
+    <color name="ThemeOneColorPrimaryDark">#5E3B3B</color>
+    <color name="ThemeOneColorAccent">#03DAC5</color>
+
+    <color name="ThemeTwoColorPrimary">#953D3D</color>
+    <color name="ThemeTwoColorPrimaryDark">#953D3D</color>
+    <color name="ThemeTwoColorAccent">#03DAC5</color>
+
+    <color name="ThemeThreeColorPrimary">#778FF0</color>
+    <color name="ThemeThreeColorPrimaryDark">#9900FF</color>
+    <color name="ThemeThreeColorAccent">#03DAC5</color>
+
+    <color name="ThemeFourColorPrimary">#5F8B63</color>
+    <color name="ThemeFourColorPrimaryDark">#37724D</color>
+    <color name="ThemeFourColorAccent">#03DAC5</color>
+
+    <color name="ThemeFiveColorPrimary">#9E5C5C</color>
+    <color name="ThemeFiveColorPrimaryDark">#9E5C5C</color>
+    <color name="ThemeFiveColorAccent">#03DAC5</color>
+
+    <color name="ThemeSixColorPrimary">#390303</color>
+    <color name="ThemeSixColorPrimaryDark">#390303</color>
+    <color name="ThemeSixColorAccent">#03DAC5</color>
 </resources>

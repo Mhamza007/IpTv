@@ -8,10 +8,12 @@ import android.util.Pair
 import android.view.View
 import android.view.WindowManager
 import com.mhamza007.iptv.login.LoginActCodeActivity
+import com.mhamza007.iptv.util.Utils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        Utils.checkThemeInfo(this)
         super.onCreate(savedInstanceState)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
